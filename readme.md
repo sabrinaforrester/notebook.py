@@ -19,6 +19,13 @@ Executes source code directly or via a compilation process.
 
 ## Python Keywords
 Reserved words that can't be used as identifiers in code.
+|----------|----------|----------|----------|----------|----------|----------|
+| Finally | None | break | except | in | raise | True |
+| await | class | finally | is | return | and | continue |
+| else | for | lambda | try | as | def | from |
+| import | nonlocal | while | assert | del | global | not |
+| pass | with | async | elif | if | or | yield |
+
 ```
 False   await   else    import  pass    None    break   except
 in  raise   True    class   finally is  return  and continue    for
@@ -68,8 +75,8 @@ Format:
 Determine if True or False (if or not to do something)
 
 ### Numbers:
-    - Int - integer - 0 ->
-    - Float - rational numbers (decimals) - <- 0 ->
+    - Int: integer - 0 ->
+    - Float: rational numbers (decimals) - <- 0 ->
         - Float operations evaluate to a float
 
 #### Number Systems
@@ -94,16 +101,19 @@ There is more than one way to represent a number
             - 0xFF012
 
 Conversion:
-    - Decimal to Binary for 15
-        - Least Significant   15/2 = 7 with remainder 1
-                            - 7/2 = 3 with remainer 1
-                            - 3/2 = 1 with remainder 1
-        - Most Significant    1/2 = with remainder 1
-
-    - Binary to Decimal for 0b1111
-        - [(1 * 2^3) + (1 * 2^2) + (1 * 2^1) + (1 * 2^0)]
-            - 8 + 4 + 2 + 1
-                - 15
+```
+    Decimal to Binary for 15
+        Least Significant   15/2 = 7 with remainder 1
+                            7/2 = 3 with remainer 1
+                            3/2 = 1 with remainder 1
+        Most Significant    1/2 = with remainder 1
+```
+```
+    Binary to Decimal for 0b1111
+        [(1 * 2^3) + (1 * 2^2) + (1 * 2^1) + (1 * 2^0)]
+            8 + 4 + 2 + 1
+                15
+```
 
 #### Floating-Point Accuracy
 - Stored as binary fractions in memory.
