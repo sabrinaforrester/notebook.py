@@ -19,19 +19,13 @@ Executes source code directly or via a compilation process.
 
 ## Python Keywords
 Reserved words that can't be used as identifiers in code.
+|          |          |          |          |          |          |          |
 |----------|----------|----------|----------|----------|----------|----------|
 | Finally | None | break | except | in | raise | True |
 | await | class | finally | is | return | and | continue |
 | else | for | lambda | try | as | def | from |
 | import | nonlocal | while | assert | del | global | not |
 | pass | with | async | elif | if | or | yield |
-
-```
-False   await   else    import  pass    None    break   except
-in  raise   True    class   finally is  return  and continue    for
-lambda  try as  def from    nonlocal    while   assert  del global
-not with    async   elif    if  or  yield
-```
 
 ## Bytecode Instructions
 Various commands that the Python virtual machine knows how to run. Python is an interpreted programming language, but source code is compiled to bytecode before being run.
