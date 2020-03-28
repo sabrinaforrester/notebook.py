@@ -1,33 +1,33 @@
-#Python Entry Level Programmer Certification
+# Python Entry Level Programmer Certification
 
-##What is a Complier?
+## What is a Complier?
 Translates code from one type (high level) to another(low level). For example: a compiler translates source code (what I write in Python) to Machine code.
 
-####5 Steps of Compilation
+#### 5 Steps of Compilation
 1. Lexical Analysis: Breaks up source code into identified tokens (How the language classifies each text[ID, EQUALS, RPAREN, LPAREN, TIMES, NUM, DIV, PLUS])
 2. Syntax Analysis (Parsing): Constructs a parse tree using the tokens provided by the lexer. Parsing provides more context about how the code should run.
 3. Semantic Analysis: Applies the language rules to the parse tree. This includes raising errors when rules are broken.
 4. Optimization: Rewrites source code to be more efficient
 5. Code Generation: Generates code onto the machine
 
-##What is an Interpreter?
+## What is an Interpreter?
 Executes source code directly or via a compilation process.
 
-####Interpreter Strategies
+#### Interpreter Strategies
 A. Parse source code and execute directly
 B. Compile to intermediate form (bytecode) and then execute
 
-##Python Keywords
+## Python Keywords
 Reserved words that can't be used as identifiers in code.
 False   await   else    import  pass    None    break   except
 in  raise   True    class   finally is  return  and continue    for
 lambda  try as  def from    nonlocal    while   assert  del global
 not with    async   elif    if  or  yield
 
-##Bytecode Instructions
+## Bytecode Instructions
 Various commands that the Python virtual machine knows how to run. Python is an interpreted programming language, but source code is compiled to bytecode before being run.
 
-##Make Executable File
+## Make Executable File
 Code in the .py file:
     '#!/usr/bin/env python3.7
 
@@ -36,37 +36,37 @@ Code in the .py file:
 In the terminal:
     './(.py file)
 
-##Comments
+## Comments
 '#' Comment
     ignored by compiler
 '"""' Multiline string
     commonly mistaken as block comment (non-existent in python)
     compiler runs to create string - takes up space in memory`
 
-##Variables
+## Variables
 Format:
 [identifier] [assign] [value]
 x = 1
 
 Variables are not statically typed - meaning a variable can be of different data types
 
-##Data Types
-####Strings: 
+## Data Types
+#### Strings: 
 Collection of character to store words (textual data)
     String Literals
         'single quoted string'
         "double quoted string"
     ''' triple quoted multiline string - each new line is represented with: \n
 
-####Boolean
+#### Boolean
 Determine if True or False (if or not to do something)
 
-###Numbers:
+### Numbers:
     Int - integer - 0 ->
     Float - rational numbers (decimals) - <- 0 ->
         Float operations evaluate to a float
 
-####Number Systems
+#### Number Systems
 There is more than one way to represent a number
     Decimal:
         base is 10
@@ -99,12 +99,12 @@ Conversion:
             8 + 4 + 2 + 1
                 15
 
-####Floating-Point Accuracy
+#### Floating-Point Accuracy
 Stored as binary fractions in memory.
 Not all decimals can be represented as binary fractions.
 Decimal numbers that cannot be represented are approximated
 
-####Operators:
+#### Operators:
 Addition
 +
 combine strings
@@ -131,7 +131,7 @@ returns the remainder as an integer
 Exponential
 **
 
-####Methods:
+#### Methods:
 
 Objects are used to encapsulate the state and behavior (funcationality)
 Methods define the behavior with a period and method name
@@ -226,7 +226,7 @@ Quotes inside quotes:
 
 
 
-#Syntax Errors:
+# Syntax Errors:
 
 "Starts with a double, ends with a single'
 Syntax Error: EOL whie scanning string literal
