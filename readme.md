@@ -310,6 +310,44 @@ Exponential
     `print(name, 'is, age, 'years old and loves the colr', color + '.', sep=" ")`
     - single space is the default seperator
 
+## Immutability
+> It can be changed.
+- Strings are immutable.
+- Not all sequence types are immutable.
+
+## Length
+>Returns the length or number of characters.
+`len()`
+- The last index of any string is `len() - 1`
+
+## Indexing
+> Returns the character that is in requested position.
+- Always starts at zero
+`string_index = "indexing"`
+`string_index[5] = 'i'`
+`string_index[-5] = 'e'`
+- Negative indexing returns the character in the string reading right to left.
+    - Always starts at one.
+
+##Slicing
+> Specify ranges of indexes to return a specific segment of a string
+- string[starting index, ending index, step value]
+`string_splice = "splicing"`
+- Return from one position to the end of the string.
+    - Manually
+        - `string_splice[3:7] = 'icing'`
+    - Using len()
+        - `string_splice[3:len(string_splice)] = 'icing'`
+    - Blank
+        - `string_splice[3:] = 'icing'`
+- Return every other character in the string beginning with index 1
+    `string_splice[1:7:2] = 'pii'`
+- Return every other character in the string beginning with index 0
+    `string_splice[:7:2] = 'slcn'`
+- Reverse string order
+    `string_splice[::-1] = 'gnicilps'`
+
+
 
 
 
@@ -398,4 +436,10 @@ Fix: cannot compare different data types to one another
 int('1.2')
 ValueError: invalid literal for int() with base 10: '1.2'
 Fix: 1.2 is not a normal interger in the decimal system so it cannot be converted from a string to an integer
+```
+```
+test_str = 'testing'
+test_str[18]
+IndexError: string index out of range
+Fix: 18 is more than the number of indexes of test_str. Reduce the number to be between 0 and 7
 ```
