@@ -114,7 +114,7 @@ Conversion:
 - Not all decimals can be represented as binary fractions.
 - Decimal numbers that cannot be represented are approximated
 
-#### Operators:
+## Operators
 ```
 Addition
 +
@@ -161,7 +161,7 @@ Exponential
 6. Bitwise Complement
     - ~
 7. Multiplication
-    - *
+    - \*
 8. Div
     - /
 9. Floor Division
@@ -169,31 +169,31 @@ Exponential
 10. Mod
     - %
 11. Add
-    - +
+    - \+
 12. Sub
-    - -
+    - \-
 13. Bitwise
     1. AND
     2. XOR
     3. OR
 14. Shift
 
-Bitwise
+#### Bitwise
 >Compare each binary digit in the same position
-    -AND &
+    - AND &
         both must be true
              0b1001 & 0b1100 = 0b1000
-    -OR  |
+    - OR  |
         either can be true
             0b1001 | 0b1100 = 0b1101
                 if either digit is a one then 1 is printed for that position.
-    -XOR ^
+    - XOR ^
         only one true value otherwise false
              0b1001 ^ 0b1100 = 0b101
-    -NOT
+    - NOT
         returns the opposite
 
-Shift Operators
+#### Shift Operators
 >Compares binary numbers with integers. Change binary representation by moving to the right or left direction.
 - Right Shift
 `a = b110`
@@ -203,27 +203,27 @@ Shift Operators
 `a = 0b110`
 `bin(a << 2) = 0b11000`
 
-Boolean Operators
--NOT
+#### Boolean Operators
+- NOT
     -returns the opposite
--OR
+- OR
     -returns true if there at least one true value
--AND
+- AND
     -returns true only if both values are true
 
-Comparison Operators
+#### Comparison Operators
 >Returns True or False for every operator. Comparisons can be  made for different data types
--Less than
+- Less than
     - <
--Greater than
+- Greater than
     - >
--Greater than or equal to
+- Greater than or equal to
     - >=
--Less than or equal to
+- Less than or equal to
     - <=
--Equivalent
+- Equivalent
     - ==
--Not Equal
+- Not Equal
     - !=
 - Identity
     - is
@@ -235,7 +235,7 @@ Comparison Operators
 `'A' <= 'a' = True`
 `ord('a') = 97 ord('A') = 65`
 
-#### Methods:
+## Methods:
 >Objects are used to encapsulate the state and behavior (funcationality)
 >Methods define the behavior with a period and method name
 
@@ -246,18 +246,18 @@ Comparison Operators
 
 `"LOWERCASE THE STRING".lower() = 'lowercase the string'`
 
-#### Escape Sequence:
+## Escape Sequence:
 
 - Tab: Tab\
 - New Line: \n
 - Escape: \
 
-#### Quotes inside quotes:
+## Quotes inside quotes:
 - "'Single' inside Double"
 - '"Double" inside single'
 - "\"Double\" escaped by Double"
 
-#### Type Casting
+## Type Casting
 - float()
     - `float(1) = 1.0`
 - int()
@@ -285,6 +285,8 @@ Comparison Operators
     not "" returns True
     not 1 returns False
     ```
+
+## Input
 
 
 
