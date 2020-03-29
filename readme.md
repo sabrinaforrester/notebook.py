@@ -78,7 +78,7 @@ There is more than one way to represent a number
     - Decimal:
         - base is 10
             - 0-9
-    - Binary: 1111
+    - Binary:
         - base is 2
             - 0-1
         - in Python: Prefix- 0b
@@ -148,8 +148,43 @@ Exponential
 **
 ```
 
-#### Methods:
+Bitwise
+>Compare each binary digit in the same position
+    -AND &
+        both must be true
+             0b1001 & 0b1100 = 0b1000
+    -OR  |
+        either can be true
+            0b1001 | 0b1100 = 0b1101
+                if either digit is a one then 1 is printed for that position.
+    -XOR ^
+        only one true value otherwise false
+             0b1001 ^ 0b1100 = 0b101
+    -NOT
+        returns the opposite
 
+Shift Operators
+>Compares binary numbers with integers. Change binary representation by moving to the right or left direction.
+- Right Shift
+`a = b110`
+`bin(a >> 2) = 0b1`
+
+- Left Shift
+`a = 0b110`
+`bin(a << 2) = 0b11000`
+
+Boolean Operators
+-NOT
+    -returns the opposite
+-OR
+    -returns true if there at least one true value
+-AND
+    -returns true only if both values are true
+
+Comparison Operators
+>Returns True or False for every operator. Comparisons can be  made for different data types
+
+#### Methods:
 >Objects are used to encapsulate the state and behavior (funcationality)
 >Methods define the behavior with a period and method name
 
@@ -160,13 +195,13 @@ Exponential
 
 `"LOWERCASE THE STRING".lower() = 'lowercase the string'`
 
-Escape Sequence:
+####Escape Sequence:
 
 - Tab: Tab\
 - New Line: \n
 - Escape: \
 
-Quotes inside quotes:
+####Quotes inside quotes:
 - "'Single' inside Double"
 - '"Double" inside single'
 - "\"Double\" escaped by Double"
