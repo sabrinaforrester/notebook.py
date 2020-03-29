@@ -19,8 +19,8 @@
 
 # Lab 2
 ## Indexing and Slicing Python Strings
-## Print different peices of information about a string back to the user.
-### What you need to know:
+### Print different peices of information about a string back to the user.
+#### What you need to know:
 - Working with string literals
 - Indexing and slicing strings
 - Printing to the screen
