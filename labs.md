@@ -7,12 +7,12 @@
 - Printing to the screen.
 
 #### Solution:
-`# Prompt and store Fahrenheit Value from User`
-`fahrenheit = float(input(What temperature (in Fahrenheit) would you like converted into Celsius?))`
+`# Prompt and store Fahrenheit Value from User` <br \>
+`fahrenheit = float(input(What temperature (in Fahrenheit) would you like converted into Celsius?))` <br \>
 - The user input is expected to be a number, so it needs to be captured as such for the future conversion.
 
-`# Calculating the Celsius Value`
-`celsius = (fahrenheit - 32) * 5/9
+`# Calculating the Celsius Value` <br \>
+`celsius = (fahrenheit - 32) * 5/9` <br \>
 
-`# Print the Calculated Value to the Screen`
-`print(fahrenheit, "F is", celsius, "C")`
+`# Print the Calculated Value to the Screen` <br \>
+`print(fahrenheit, "F is", celsius, "C")` <br \>
