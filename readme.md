@@ -40,7 +40,8 @@ Code in the .py file:
 
 In the terminal:
 ```
-    './(.py file)
+    $ chmod u+x ~/(.py file)
+    Run script with:    ./(.py file)    from the home directory.
 ```
 
 ## Comments
