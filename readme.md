@@ -46,7 +46,7 @@ In the terminal:
 ## Comments
 - [#] Comment
     - ignored by compiler
-- ["""] Multiline string
+- [```] Multiline string
     - commonly mistaken as block comment (non-existent in python)
     - compiler runs to create string - takes up space in memory`
 
@@ -63,12 +63,12 @@ Format:
     - String Literals
         - 'single quoted string'
         - "double quoted string"
-    - ''' triple quoted multiline string - each new line is represented with: \n
+    - ``` triple quoted multiline string - each new line is represented with: \n
 
 #### Boolean
 Determine if True or False (if or not to do something)
 
-### Numbers:
+#### Numbers:
     - Int: integer - 0 ->
     - Float: rational numbers (decimals) - <- 0 ->
         - Float operations evaluate to a float
@@ -276,19 +276,38 @@ Exponential
     'This' and 'That' returns 'That'
     ```
     ```
-    or returns the first True value or the last False value if they are all False:
+    'or' returns the first True value or the last False value if they are all False:
     1 or 0 returns 1
     0 or "" returns ''
     ```
     ```
-    not returns the opposite True or False value:
+    'not' returns the opposite True or False value:
     not "" returns True
     not 1 returns False
     ```
 
 ## Input
+- input()
+    - built-in function to prompt the user for input
+    - Function may be used empty 
+        - input()
+    - Function may be used with a message to the user
+        - input(Enter text)
 
+- print()
+    - (function) print: (*values, sep: str, end: str, file: Option al[_Writer], flush: bool) -> None
+`name = input("What is your name?")`
+    `color = input("What is your favorite color?")`
+    `age = int(input("How old are you today?"))`
 
+- end is the string that is added to the end of the string being printed
+    `print(name, end=" ")`
+    `print("is " + str(age) + " years old", end=" ")`
+    `print("and loves the color" + color + ".", end=" ")`
+    
+- sep is the seperater string
+    `print(name, 'is, age, 'years old and loves the colr', color + '.', sep=" ")`
+    - single space is the default seperator
 
 
 
