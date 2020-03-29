@@ -147,6 +147,36 @@ returns the remainder as an integer
 Exponential
 **
 ```
+#### Operator Binding
+>How to handle order of operations with many operators
+1. Parenthesis
+    - ()
+2. List
+    - []
+3. Function
+4. Exponents
+    - **
+5. Positive or Negative
+    - (+/-)1
+6. Bitwise Complement
+    - ~
+7. Multiplication
+    - *
+8. Div
+    - /
+9. Floor Division
+    - //
+10. Mod
+    - %
+11. Add
+    - +
+12. Sub
+    - -
+13. Bitwise
+    1. AND
+    2. XOR
+    3. OR
+14. Shift
 
 Bitwise
 >Compare each binary digit in the same position
@@ -183,6 +213,27 @@ Boolean Operators
 
 Comparison Operators
 >Returns True or False for every operator. Comparisons can be  made for different data types
+-Less than
+    - <
+-Greater than
+    - >
+-Greater than or equal to
+    - >=
+-Less than or equal to
+    - <=
+-Equivalent
+    - ==
+-Not Equal
+    - !=
+- Identity
+    - is
+        - `1 is 1.0 = False`
+        - `[] is [] = False` because empty lists are modifiable
+        - id() memory location
+- Negate Identity
+    -is not
+`'A' <= 'a' = True`
+`ord('a') = 97 ord('A') = 65`
 
 #### Methods:
 >Objects are used to encapsulate the state and behavior (funcationality)
@@ -195,17 +246,45 @@ Comparison Operators
 
 `"LOWERCASE THE STRING".lower() = 'lowercase the string'`
 
-####Escape Sequence:
+#### Escape Sequence:
 
 - Tab: Tab\
 - New Line: \n
 - Escape: \
 
-####Quotes inside quotes:
+#### Quotes inside quotes:
 - "'Single' inside Double"
 - '"Double" inside single'
 - "\"Double\" escaped by Double"
 
+#### Type Casting
+- float()
+    - `float(1) = 1.0`
+- int()
+    - `int(1.3) = 1`
+    - `int('1') = 1`
+- str()
+    - `str(1.0) = '1.0'`
+- bool()
+    - `bool(1) = True`
+    - `bool(0) = False`
+    - `bool('') = False`
+    >Anything zero or similar to zero is False, such as empty lists.
+    ```
+    'and' without boolean works differently by not returning True or False. Instead it returns the first value that is False or the last True value if it is all True:
+    1 and 0 returns 0
+    'This' and 'That' returns 'That'
+    ```
+    ```
+    or returns the first True value or the last False value if they are all False:
+    1 or 0 returns 1
+    0 or "" returns ''
+    ```
+    ```
+    not returns the opposite True or False value:
+    not "" returns True
+    not 1 returns False
+    ```
 
 
 
@@ -279,9 +358,22 @@ Comparison Operators
 
 
 
-# Syntax Errors:
 
+
+# Errors:
+```
 "Starts with a double, ends with a single'
 Syntax Error: EOL whie scanning string literal
     EOL: End of Line
 Fix: quote marks must be the same on both sides of the string
+```
+```
+'a' <= 1
+TypeError: '<=' not supported between instances of 'str' and 'int'
+Fix: cannot compare different data types to one another
+```
+```
+int('1.2')
+ValueError: invalid literal for int() with base 10: '1.2'
+Fix: 1.2 is not a normal interger in the decimal system so it cannot be converted from a string to an integer
+```
