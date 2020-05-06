@@ -311,8 +311,9 @@ Exponential
     - single space is the default seperator
 
 ## Immutability
-> It can be changed.
+> It cannot be changed.
 - Strings are immutable.
+- Lists are mutable
 - Not all sequence types are immutable.
 
 ## Length
@@ -347,7 +348,42 @@ Exponential
 - Reverse string order
     `string_splice[::-1] = 'gnicilps'`
 
-
+##Lists
+> Batch up a collection of other items (booleans, integers, floats, strings)
+- Create a list
+    - `my_list = ["apple", 4.5, 2, True]`
+    - items within a list do not all have to be the same
+- Index a list
+    - `my_list[0]`
+        - returns "apple"
+- Length of list
+    - 'len(my_list)'
+        - returns 5
+- Slice a list
+    - slice from one index to another
+        - `my_list[0:2]`
+    -slice from one index to the end of the list
+        - `my_list[1:]`
+    -slice from the beginning of the list to one index
+        - `my_list[:3]
+    -stepping by one
+        -my_list[0::1]
+Mutability
+    - Change the value of an index
+        - `my_list[2] = 'x'`
+            - my_list = ['apple', 4.5, 'x', True]
+        - `my_list[1:3] = ['elephant', 'donkey']
+            - my_list = ['apple', 'elephant', 'donkey', True]
+            - the length of the replacement values does not have to be the same, the list will just grow to include all.
+    - Concatenate lists
+        - `my_list + ["banana", 7.3, 'z', False]`
+            - this does not make a change to my_list
+        - `my_list += ["banana", 7.3, 'z', False]`
+            - this creates a new list then reassigns it
+            
+        
+    
+        
 
 
 
