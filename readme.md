@@ -741,7 +741,7 @@ def can_drive(age, driving_age=16):
 
 ### Recursion
 > Call a function from within its definition
-    > There are limits to recursion
+    > Poor performance characterisitics unless optimized
 
 > Fibonnaci Sequence
     > 1, 1, 2, 3, 5, 8, 13,...
