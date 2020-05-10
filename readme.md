@@ -587,6 +587,8 @@ while count <= 4:
 ### For Loop
 > Iterates using a temporary variable(name doesn't matter)
 > indexable sequence types: lists, tuples, strings, etc
+
+> For loop through a list, iterates through each item and assigns the item to a variable
 ```
 colors = ['blue', 'green', 'red', 'purple']
 for color in colors:
