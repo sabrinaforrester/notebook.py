@@ -5,7 +5,7 @@ Translates code from one type (high level) to another(low level). For example: a
 
 #### 5 Steps of Compilation
 1. Lexical Analysis: Breaks up source code into identified tokens (How the language classifies each text[ID, EQUALS, RPAREN, LPAREN, TIMES, NUM, DIV, PLUS])
-2. Syntax Analysis (Parsing): Constructs a parse tree using the tokens provided by the lexer. Parsing provides more context about how the code should run.
+2. Syntactic Analysis (Parsing): Applying language rules to categorized tokens from source code. Constructs a parse tree using the tokens provided by the lexer. Parsing provides more context about how the code should run.
 3. Semantic Analysis: Applies the language rules to the parse tree. This includes raising errors when rules are broken.
 4. Optimization: Rewrites source code to be more efficient
 5. Code Generation: Generates code onto the machine
@@ -18,7 +18,7 @@ Executes source code directly or via a compilation process.
 2. Compile to intermediate form (bytecode) and then execute
 
 ## Python Keywords
-Reserved words that can't be used as identifiers in code.
+Reserved tokens used by the language that can't be used as identifiers in code.
 |          |          |          |          |          |          |          |
 |----------|----------|----------|----------|----------|----------|----------|
 | Finally | None | break | except | in | raise | True |
@@ -71,6 +71,7 @@ Format:
         - returns 97, the code point for the letter a
     - chr(97)
         - returns 'a'
+            - returns the string character for a corresponding Unicode code point (integer)
         - hexadecimal value of the code point may also return the original string
             - ord('\hexadecimal')
 #### Methods
@@ -127,6 +128,7 @@ Format:
 
 #### Boolean
 Determine if True or False (if or not to do something)
+- representation of truth in programming languages
 
 #### Numbers:
     - Int: integer - 0 ->
@@ -171,7 +173,7 @@ Conversion:
 
 #### Floating-Point Accuracy
 - Stored as binary fractions in memory.
-- Not all decimals can be represented as binary fractions.
+- Not all binary decimals can be represented as binary fractions.
 - Decimal numbers that cannot be represented are approximated
 
 ## Operators
@@ -265,7 +267,7 @@ Exponential
 
 #### Boolean Operators
 - NOT
-    - returns the opposite
+    - returns the opposite boolean value of its operand
 - OR
     - returns true if there at least one true value
 - AND
@@ -347,6 +349,8 @@ Exponential
     ```
 
 ## Input
+> Read, Evaluate, Print, Loop (REPL)
+> executes individual blocks of code (usually a simgle line) and then returns the user to a prompt
 - input()
     - built-in function to prompt the user for input
     - Function may be used empty 
@@ -361,6 +365,7 @@ Exponential
     `age = int(input("How old are you today?"))`
 
 - end is the string that is added to the end of the string being printed
+    - send to the print function to prevent it from adding a newline character
     `print(name, end=" ")`
     `print("is " + str(age) + " years old", end=" ")`
     `print("and loves the color" + color + ".", end=" ")`
@@ -389,7 +394,7 @@ Exponential
 - Negative indexing returns the character in the string reading right to left.
     - Always starts at one.
 
-##Slicing
+## Slicing
 > Specify ranges of indexes to return a specific segment of a string
 - string[starting index, ending index, step value]
 `string_splice = "splicing"`
@@ -560,11 +565,12 @@ Exponential
         print("Hello James")
       else:
         pass
-            - place holder
+> Pass: used in a code block to do nothing
 ## Looping
 > Bundle logic and repeat usually based on conditions
 ### While Loop
 > Good for iterating an unknown or infintie number of times
+> provide a conditional that determines if the loop body should be executed for the current iteration
 ```
 while 1<2:
     print("something")
@@ -580,6 +586,7 @@ while count <= 4:
 
 ### For Loop
 > Iterates using a temporary variable(name doesn't matter)
+> indexable sequence types: lists, tuples, strings, etc
 ```
 colors = ['blue', 'green', 'red', 'purple']
 for color in colors:
@@ -658,7 +665,7 @@ else:
     - only use else with a break
 
 ### Range
-> Provise the next item when iteratoring, does not calculate the next item until requested
+> Creates an iterable with all items from the start to the stop value (with a step value), calculating the values when requested.
 > Increment over a *non-existent* sequential list or a certain number of times
 - my_range = range(10)
 - list(my_range)
@@ -671,8 +678,10 @@ for _ in range(4):
 ```
    - _ conventional way of saying a variable is not needed     
 
-### Loop Comprehension
+### List Comprehension
+> Short-hand used to create a list by processing each value in an existing list
 > Easy to read and can be used for filtering
+    > created using the for loop
 ```
 colors = ['red', 'blue', 'orange', 'green', 'yellow']
 uppercase_colors = []
@@ -711,7 +720,7 @@ def add_two(num)
         - returns 4
 ### Parameters vs Arguments
 > Parameters: variable defined when defining the function
-> Arguments: values passed for the parameters
+> Arguments: values provided for the parameters when calling the function
 
 ```
 def contact_card(name, age, car_model):
@@ -731,7 +740,7 @@ def can_drive(age, driving_age=16):
         - can_drive(29) returns true
 
 ### Recursion
-> Call a function from within itself
+> Call a function from within its definition
     > There are limits to recursion
 
 > Fibonnaci Sequence
@@ -780,6 +789,7 @@ def gen_range(stop, start=1, step = 1)
     - returns [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
    
  > Generators with Fibinnaci Sequence  
+    > next() is used to get the result yielded from a generator
 ```
 def gen_fib():
     a, b = 0, 1
