@@ -973,7 +973,29 @@ else:
     `my_var = 1 if CONDITION else 2`
     
 ## Modules and Packages
+> Reusable code: package the code into modules and packages to pull into other python programs.
+    > Allows use of code from 3rd parties and libraries.
+    
+### Modules
+> A file containing a set of functions you want to include in your application.
+    > Logical groupings
+    
+### Import
 
+`import module`
+- imports the whole module
+
+`import module as mod`
+- imports module and changes the name
+
+`from module import stuff`
+- import specific things from a module allowing you to call functions without referencing the module it is contained in.
+
+`from module import stuff as stf`
+- import specific things from a module and change the name
+
+`from module import *`
+- may run into some errors when calling a function name if other modules have functions with the same name
 
 
 
