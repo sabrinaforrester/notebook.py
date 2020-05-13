@@ -859,6 +859,121 @@ set_x(10)
 print("y after set_x:, y)
 print("a after set_x:, a)
 ```
+## Lambda
+> A small anonymous function - function without a name
+    >Can take any number of arguments, but can only have one expression.
+    - Good for processing collections.
+
+> Regular Function
+```
+def square(num):
+    return num*num
+square(2)
+    - returns 4
+```
+> Lambda Function
+```
+lambda num: num*num
+```
+- Lambdas can be assigned to variables
+    - square_lambda = lambda num: num*num
+
+- Compare both functions: Regular vs Lambda
+    - assert square(4) == square_lambda(4)
+        - There would be an assertion error if the functions did not match.
+        
+### Collection Functions
+> Higher order functions that can take in another function as an argument or return a function as its return value.
+
+#### Map
+> Executes a specified function for each item in a iterable. The item is sent to the function as a parameter.
+    > *map(function, iterables) *
+    > Explanation using algebra
+```
+f(x) = 1 + x
+
+Domain: [1, 2]
+Range: [2, 3]
+
+mapping f(x) over the domain to get the range
+```
+> Mapping example
+```
+domain = [1, 2, 3, 4, 5]
+
+#f(x) = x * 2
+our_range = **map**(lambda num: num * 2, domain)
+print(list(our_range))
+```
+- returns [2, 4, 6, 8, 10]
+- print(list(... or else it will print a map object
+
+#### Filter
+> Returns an iterator wHere the items are filtered through a function to test if the item is accepted or not.
+```
+domain = [1, 2, 3, 4, 5]
+
+evens = filter(lambda num: num % 2 == 0, domain)
+print(list(evens))
+```
+- filter function puts every item from the domain into the lambda function, and if it returns true it will print to the output
+    - returns [2, 4]
+    
+#### Reduce
+> Apply function of two arguments cumulatively to the items of iterable, from left to right, so as to reduce the iterable to a single value.
+- no longer a built-in function
+    - **from functools import reduce**
+```
+domain = [1, 2, 3, 4, 5]
+the_sum = reduce(lambda acc, num: acc + num, domain, 0)
+```
+- domain: iterable
+- lambda acc: the accumulated value
+- num: update value from the iterable
+- 0: initial value
+    - If initializer is not given and iterable contains only one item, the first item is returned.
+- returns 15
+
+#### Sorted
+> The sorted() function returns a sorted list of the specified iterable object.
+- You cannot sort a list that contains BOTH string values AND numeric values.
+> *sorted(iterable, key=key, reverse=reverse)*
+    - iterable:	The sequence to sort, list, dictionary, tuple etc.
+    - **key: A Function to execute to decide the order. Default is None**
+    - reverse: A Boolean. False(default) will sort ascending, True will sort descending. 
+> Sort is a method that changes the list that .sort() is being called on
+> Sorted produces a new list
+```
+words: ['Boss', 'a', 'Alfred', 'Demon', 'dig']
+print("Sorting by default")
+print(sorted(words))
+```
+- returns: ['Alfred', 'Boss', 'Daemon', 'a', 'dig', 'fig']
+```
+words: ['Boss', 'a', 'Alfred', 'Demon', 'dig']
+print("Sorting with a lambda key")
+print(sorted(words, key = lambda s: s.lower()))
+```
+- returns: ['a', 'Alfred', 'Boss', 'Demon', 'dig', 'fig']
+- Key is used to process each individual item in words before it is compared.
+    - key = lambda s: s.lower()
+        - Goes through the list to process each string as lowercase
+        - Not converting the values in words[] but changing the comparison values to sort regardless of the case.
+
+## If Operator
+> A conditional expression
+> Different from an *if statement* because it returns something
+```
+if CONDITION:
+    my_var = 1
+else:
+    my_var = 2
+```
+- can also be flattened to one line
+    `my_var = 1 if CONDITION else 2`
+    
+## Modules and Packages
+
 
 
 
