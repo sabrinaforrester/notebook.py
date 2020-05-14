@@ -980,7 +980,26 @@ else:
 > A file containing a set of functions you want to include in your application.
     > Logical groupings
     
+> **Creating a Module**
+```
+def extract_upper(phrase):
+    return list(filter(str.isupper, phrase))
+    
+def extract_lower(phrase):
+    return list(filter(str.islower, phrase))
+```
+> **Access Module from Script**
+```
+import module
+name = "James St. Patrick
+print(f"Lowercase Letters: {module.extract_lower(name)}")
+print(f"Uppercase Letters: {module.extract_upper(name)}")
+```
+- returns the lowercase letters from the name variable
+- returns the uppercase letters from the name variable
+    
 ### Import
+> Processed on the first import
 
 `import module`
 - imports the whole module
@@ -997,6 +1016,23 @@ else:
 `from module import *`
 - may run into some errors when calling a function name if other modules have functions with the same name
 
+> **Module vs Script**
+- On first import the module is read in, it only executes once.
+
+    > __name__
+        - gives the name of the module in the context
+- Run a module by name
+    -python3.7 **-m** module
+
+### Module Hiding
+> Hide module entities
+
+- `from module import *`
+    - __all__ limis which entities will be exported when all entities are being called.
+        - __all__ = ['mod_func']
+            - list of strings of the functions to be available 
+    - **_underscores_** also hide module entities
+        - 
 
 
 
