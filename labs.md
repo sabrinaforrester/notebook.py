@@ -46,36 +46,36 @@
 ### Create Purchasing Information and Receipts for Lovely Loveseats
 #### Solution
 
-`#Create description and price variable for lovely loveseat`
-`lovely_loveseat_description = '''Lovely Loveseat. Tufted polyester blend on wood. 32 inches high x 40 inches wide x 30 inches deep. Red or white.'''`
-`lovely_loveseat_price = 254.00`
+`#Create description and price variable for lovely loveseat` <br />
+`lovely_loveseat_description = '''Lovely Loveseat. Tufted polyester blend on wood. 32 inches high x 40 inches wide x 30 inches deep. Red or white.'''` <br />
+`lovely_loveseat_price = 254.00` <br />
 
-`#Create description and price variable for stylish settee`
-`stylish_settee_description = '''Stylish Settee. Faux leather on birch. 29.50 inches high x 54.75 inches wide x 28 inches deep. Black.'''`
-`stylish_settee_price = 180.50`
+`#Create description and price variable for stylish settee` <br />
+`stylish_settee_description = '''Stylish Settee. Faux leather on birch. 29.50 inches high x 54.75 inches wide x 28 inches deep. Black.'''` <br />
+`stylish_settee_price = 180.50` <br />
 
-`#Create description and price variable for luxorious lamp`
-`luxurious_lamp_description = '''Luxurious Lamp. Glass and iron. 36 inches tall. Brown with cream shade.'''`
-`luxurious_lamp_price = 52.15`
+`#Create description and price variable for luxorious lamp` <br />
+`luxurious_lamp_description = '''Luxurious Lamp. Glass and iron. 36 inches tall. Brown with cream shade.'''` <br />
+`luxurious_lamp_price = 52.15` <br />
 
-`#Create and set sales tax variable`
-`sales_tax = .088`
+`#Create and set sales tax variable` <br />
+`sales_tax = .088` <br />
 
-`#Create and set customers total and items, should start at zero since they have not added anythinf to their cart yet.`
-`customer_one_total = 0`
-`customer_one_itemization = ''`
+`#Create and set customers total and items, should start at zero since they have not added anythinf to their cart yet.` <br />
+`customer_one_total = 0` <br />
+`customer_one_itemization = ''` <br />
 
-`#Add prices and items to the customers total and list`
-`customer_one_total += lovely_loveseat_price`
-`customer_one_itemization += lovely_loveseat_description`
-`customer_one_total += luxurious_lamp_price`
-`customer_one_itemization += luxurious_lamp_description`
+`#Add prices and items to the customers total and list` <br />
+`customer_one_total += lovely_loveseat_price` <br />
+`customer_one_itemization += lovely_loveseat_description` <br />
+`customer_one_total += luxurious_lamp_price` <br />
+`customer_one_itemization += luxurious_lamp_description` <br />
 
-`#Compute and add the sales tax to the cutomers total`
-`customer_one_tax = customer_one_total * sales_tax`
-`customer_one_total += customer_one_tax`
+`#Compute and add the sales tax to the cutomers total` <br />
+`customer_one_tax = customer_one_total * sales_tax` <br />
+`customer_one_total += customer_one_tax` <br />
 
-`#Print the customers receipt`
-`print('Customer One Items: ', customer_one_itemization)`
-`print('Customer one Total: ', customer_one_total)`
+`#Print the customers receipt` <br />
+`print('Customer One Items: ', customer_one_itemization)` <br />
+`print('Customer one Total: ', customer_one_total)` <br />
 
