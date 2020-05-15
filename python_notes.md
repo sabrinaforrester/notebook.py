@@ -1033,7 +1033,19 @@ print(f"Uppercase Letters: {module.extract_upper(name)}")
         - __all__ = ['mod_func']
             - list of strings of the functions to be available 
     - **_underscores_** also hide module entities
-        - 
+
+### Module Search
+> Where do imports come from?
+- imports can pull from current working directories
+- PythonPath environment variables set before running python allows more directories to be added to import from
+- directoried from Python installation
+    - standard library
+        - `import sys
+            sys.path`
+                - gives list of directories
+    - 3rd party libraries
+
+
 
 
 
