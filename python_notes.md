@@ -1,4 +1,4 @@
-# Python Entry Level Programmer Certification
+# Learn Python
 
 ## What is a Complier?
 Translates code from one type (high level) to another(low level). For example: a compiler translates source code (what I write in Python) to Machine code.
@@ -842,6 +842,7 @@ print("Outer y:", y)
 
 > Global keyword
 - parameters win over global variables
+> A variable that is defined outside of a function is called a global variable. It can be accessed inside the body of a function. 
 ```
 y = 5
 def set_x(z):
