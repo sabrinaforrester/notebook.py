@@ -1038,12 +1038,51 @@ print(f"Uppercase Letters: {module.extract_upper(name)}")
 > Where do imports come from?
 - imports can pull from current working directories
 - PythonPath environment variables set before running python allows more directories to be added to import from
-- directoried from Python installation
+    - PYTHONPATH = ' /home/cloud_user'
+        - set another directory to load a module that exists in that directory
+- directories from Python installation
     - standard library
         - `import sys
             sys.path`
-                - gives list of directories
+                - gives list of directories to search for from the python installation
+                - searches the standard library first then searches the directories in sys.path
+                    - prevents creating a module that overrides a standard library module which will disable access to the code
     - 3rd party libraries
+        - stored in site-packages directory
+    
+### Creating Python Packages
+> Packages allows modules to be bundled for distribution
+```
+mkdir module 
+touch module/__init__.py
+mv module.py module/modone.py
+mv othermod.py module/modtwo/py
+```
+- make a module
+    - create a special file name to distinguish it as a package
+        - move and rename pre-existing modules into the module package
+- __init__.py
+    -intialization code for the package
+        - this code is ran before accessing the modules within the package
+    - gain access to the identifiers in the sub-modules when importing from local module
+        - specify what will be imported from the modules inside the package
+        `__all__ = ['extract_upper']`
+        `from .modone import *`
+        `from module import *`
+
+> **Using Python Packages**
+```
+from module.modone import extract_lower, extract_upper
+from module import modtwo
+import module
+
+print(f{"Lowercase Letters: {extract_lower(modtwo.name)}")
+print(f{"Uppercase Letters: {extract_upper(modtwo.name)}")
+print(f{"From module: {module.modone.extract_lower(modtwo.name)}")
+```
+- Chaining the package name into the module
+- Access module from the package
+- Work directly from the package then chain the package to the module that needs to be used.
 
 
 
