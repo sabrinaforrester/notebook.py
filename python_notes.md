@@ -13,6 +13,14 @@ Translates code from one type (high level) to another(low level). For example: a
 ## What is an Interpreter?
 Executes source code directly or via a compilation process.
 
+### Shebang
+> The shebang line in any script determines the script's ability to be executed like a standalone executable without typing python beforehand in the terminal or when double clicking it in a file manager (when configured properly). It isn't necessary but generally put there so when someone sees the file opened in an editor, they immediately know what they're looking at.
+
+`'#!/usr/bin/env python`
+- make file executable in the terminal
+`chmod +x file.py`
+`./file.py`
+
 #### Interpreter Strategies
 1. Parse source code and execute directly
 2. Compile to intermediate form (bytecode) and then execute
@@ -1084,6 +1092,67 @@ print(f{"From module: {module.modone.extract_lower(modtwo.name)}")
 - Access module from the package
 - Work directly from the package then chain the package to the module that needs to be used.
 
+### Package installation
+> PIP allows for easy installation of packages from PyPI(Python Package Index)
+`pip install package`
+
+> Useful pip commands:
+- install
+    - install packages
+- uninstall
+    - uninstall packages
+- freeze
+    - Output installed packages in requirements format
+> **Create an installable package**
+    > Python Packaging Authority (PyPA)
+- mkdir -p module/src/module
+    - *packaging code for distribution*/create src directory in module package*
+- mv module/\*.py module/src/module
+    - move all python files into the src directory
+- modify sample setup.py file from PyPA
+- build a distribution for the python package, that unpacks source code into the site_packages directory
+    - **Built Distribution**: A Distribution format containing files and metadata that only need to be moved to the correct location on the target system, to be installed. Wheel is such a format, whereas distutil’s Source Distribution is not, in that it requires a build step before it can be installed. This format does not imply that Python files have to be precompiled (Wheel intentionally does not include compiled Python files).
+        - **Wheel**: A Built Distribution format introduced by PEP 427, which is intended to replace the Egg format. Wheel is currently supported by pip.
+            - `setup.py bdist_wheel`
+        - **Egg**: A Built Distribution format introduced by setuptools, which is being replaced by Wheel.
+- Must install package before use, no longer in original package since being moved.
+    - use the path to the wheel file to pip install the global package
+## Documentation
+### DocStrings
+> Triple quoted strings that detail the code blocks, usually in the beginning
+    > """...."""
+- not a comment because the interpreter assigns them to a hidden variable
+    - allocate space in memory and adds the string value
+    - Added as an attribute in the package
+- uninstall package to use DocStrings within that package
+    `pip uninstall -y module`
+    `pip install --editable .`
+        - after editable put the directory or '.' for the current directory
+- review documentation in REPL
+    `import module`
+    `module.__doc__`
+> DocStrings in functions
+- placed at the top of the function code
+- Allows for automatated testing to update documentation
+```
+def extract_upper(phrase):
+"""
+extract_upper is a function that extracts upper case letters from a string
+
+>>> extract_upper("Hello There, Bob")
+['H', 'T', 'B', 'O', '']
+"""
+```
+    - DocTest is REPL code inside of a DocString
+        - When ran, if the result does not match what is in brackets, an error occurs
+        - Force output when the DocTests pass with **--verbose**
+            ```
+            Failed example:
+                extract_upper("Hello There, BOB")
+            Expected:
+                ['H', 'T', 'B', 'O', '']
+            Got:
+                ['H', 'T', 'B', 'O', 'B']
 
 
 
