@@ -1153,10 +1153,65 @@ extract_upper is a function that extracts upper case letters from a string
                 ['H', 'T', 'B', 'O', '']
             Got:
                 ['H', 'T', 'B', 'O', 'B']
+## Object Oriented Programming
 
+### Objects
+> An entity that encompasses some data and functionality.
+    > not all objects have data. 
+> Almost everything in Python is an object, with its properties and methods.
 
+### Classes
+> Classification of an object
+    > typically considered as types
 
+```
+class Vehicle:
+    """
+    Vehicle is a type that describes defa machine that help us travel.
+    """
+    def __init__(self, engine, tires):
+    """
+    Customizes the initialization of the object
+    """
+        self.engine = engine
+        self.tires = tires
+```
+> An object can hold onto information and have methods. The methods are defined in the class and the information is usually attached to the instance.
+- class describes the whole concept of a vehicle
+    - define methods as they would interact on the class
+        - *def __init__* used to customize the creation of an object
+            - All classes have a function called __init__(), which is always executed when the class is being initiated. Use the __init__() function to assign values to object properties, or other operations that are necessary to do when the object is being created.
+        - variable used to denote the inidividual instance 
+            - The **self** parameter is a reference to the current instance of the class, and is used to access variables that belongs to the class. It does not have to be named self , you can call it whatever you like, but it has to be the first parameter of any function in the class.
+            - Attach information to the instance: variable assignment chained off of the instance 
+> **Create an Object**
+- *self* is passed implicitly, start with the second parameter
+```
+civic = Vehicle('4-cylinder', [front-driver', 'front-passenger', 'rear-driver', 'rear-passenger'])
+```
+- civic is an instance of the type
+    - civic.engine returns '4-cylinder'
+- calling civic would return a vehicle object
+- type(civic) returns the class the object class/type
 
+> **Create an Instance Method**
+```
+def description(self):
+print(f"A vehicle with a {self.engine} engine and {self.tires} tires")
+```
+- civic.description returns a method of a Vehicle class object
+- civic.description() returns the print statement fron the instance method
+    - self is implict
+
+> Add attributes outside of the class in the REPL
+`civic.serial_number = '1234'`
+> Delete attributes
+`del civic.serial_number`
+
+### Constructors Class Methods, and Decorators
+> Define data on a class because it is also an object
+`class_variable = 'Keith'`
+`>>> Vehicle.class_vehicle` returns 'Keith'
 
 
 
