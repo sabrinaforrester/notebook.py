@@ -1208,22 +1208,188 @@ print(f"A vehicle with a {self.engine} engine and {self.tires} tires")
 > Delete attributes
 `del civic.serial_number`
 
-### Constructors Class Methods, and Decorators
+### Constructors, Class Methods, and Decorators
 > Define data on a class because it is also an object
+- setting up constructor methods
 `class_variable = 'Keith'`
 `>>> Vehicle.class_vehicle` returns 'Keith'
 
+#### Decorators
+> A decorator is a design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. 
+    > Decorators are usually called before the definition of a function you want to decorate. 
+```
+@classmethod
+def bicycle(cls, tires=None):
+pass
+```
+- @classmethod is the decorator
+    - takes in the bicycle function and returns a slightly different function that will allow it to be called on the class it is composed in.
+- cls implicitly passed
+    - instance of the class it is composed in.
 
+```
+class Vehicle:
+    """
+    Vehicle is a type that describes defa machine that help us travel.
+    """
+```    
+    `default_tire = 'tire'`
+    - class variable
+    ```
+    def __init__(self, engine, tires):
+        self.engine = engine
+        self.tires = tires
+    ```
+    `@classmethod`
+    - decorator
+    `def bicycle(cls, tires=None):`
+        - defined a class method that can be accessed by `Vehicle.bicycle`
+        `if not tires:`
+            `tires = [cls.default_tire, cls.default_tire]`
+            - if there are no tires then create a list of the two default tires
+        `return cls(None, tires)`
+        - return an instance of a class
+            - initializing the Vehicle class
+                - None because there is no engine on a bicycle
+```
+>>>bike = Vehicle.bicycle()
+>>>bike.engine
+>>>bike.tires
+tire, tire
+```
+    
+> **Static Method**
+> A static method does not receive an implict first argument.
+> Convert a function to be a static method
 
+### Inheritance
+> Define a type then define a more specific type that shares functionality with the parent type.
 
+#### Super
+> a class
+`super().__init__(distance_traveled, unit)`
+- function that will make the child class inherit all the methods and properties from its parent.
+    - you do not have to use the name of the parent element, it will automatically inherit the methods and properties from its parent.
+    - call the parent class' implementation of this method as pass the instance
+> Use super in the sub-class to set distance_traveled
+    `from vehicle import Vehicle`
+    `class Bicycle(Vehicle)`
+    `default_tire = 'tire'`
+    
+    `def __init__(self, tires = None, distance_traveled = 0, unit = 'miles')`
+        `super().__init__(distance_traveled, unit)`
+            - __init__ is the function we want to call on the parent class
+            - overriding init but still need to invoke what happens in the parents version of init
+        `if not tires:`
+            `tires = [self.default_tire, self.default_tire]`
 
+`from vehicle import Vehicle`
+    - from the vehicle module import the Vehicle class
+`class Bicycle(Vehicle)`
+    - Create the Bicylce class which is a subclass of vehicle
+    - The Bicycle class inherits all functionality of the Vehicle class
+    `def __init__(self, distance_traveled=0, units='miles'):`
+        `self.distance_traveled = distance traveled`
+        `self.unit = unit`
+    `def description(self):
+        `print(f"A {self.__class__.__name__} that has traveled {self.distance_traveled} {self.unit}")`
+        - {self.__class__.__name__} will change based on the sub-class ( the sub-class would be a different type of vehicle)
+`>>> bike = Bicycle()`
+`bike.description() returns 'A Bicycle that has traveled 0 miles'`
 
+#### Multiple Inheritance
+> Create classes that can be sub classes of multiple parent classes
+> The Method Resolution Order (MRO) determines where Python looks for a method when there is a hierarchy of classes.
+    - if super is called what is the next thing that will get invoked
+        - *class name*.__mro__
+    - \**kwargs - keyword arguments
+        - collect all keyword arguments into a variable
+        - useful when there are more than five variables
+        - should be called in super()
 
+> Example: Create a car class and a boat class then combine them
 
+```
+class Car(Vehicle):
+    default_tire = 'tire'
+    
+    def__init__(self, engine, tires=None, distance_traveled, unit = 'miles'):
+        super().__init__(distance_traveled, unit)
+        if not tires:
+            tires = [self.default_tire, self.default_tire, self.default_tire, self.default_tire]
+        self. tires = tires
+        self.engine = engine
+        
+    def drive(self, distance):
+        self.distance_traveled += distance
+```
+```
+class Boat(Vehicle):
+    def__init__(self, boat_type = 'sail', distance_traveled, unit = 'miles'):
+        super().__init__(distance_traveled, unit)
+        self.boat_type = boat_type
+        
+    def voyage(self, distance):
+        self.distance_traveled += distance
+    
+    def description(self):
+        inital = super().description
+        return f"{initial} using a {self.boat_type}
+```
+> The amphibious vehicle class will use mutliple inheritance
+```
+from boat import Boat
+from car import Car
 
+class AmphibiousVehicle(Car, Boat):
+def __init__(self, engine, tires=[], distance_traveled = 0, unit = 'miles'):
+    super().__init__(engine, tires, distance_traveled, unit)
+    self.boat_type = 'motor'
+def travel(self, land_distance = 0, water_distance = 0):
+    super().voyage(water_distance)
+    super().drive(land_distance)
+```
+> Dealing with MRO issues
+- Use explicit keywords for super
+    - super().__init__(engine=engine, tires=tires, distance_traveled=distance_traveled, unit=unit)
+- \**kwargs
+- Reorder class arguments when defining the class
+    - class AmphibiousVehicle(Car, Boat):
+        - Car and Boat can be switched to change the MRO
 
+#### Inspecting Objects
+> inspect objects and collect information to debug code
+    - look at the information the class specifies
+    - look at the information specifc to the instance of the class
 
+.__bases__
+- list classes the class inherits from
 
+.__subclasses__()
+- list sub-classes that inherit from the base class
+- only lists the sub-classes that have been loaded
+
+**dir()**
+- lists some methods and attributes that can be chained off of
+
+**hasattr()**
+- ask a class if it has a specifc class level attribute
+
+**issublass()**
+- ask a class if it is a sublass of another class
+
+**isinstance()**
+- 
+
+.__dict__
+- gives a dictionary on the attributes assigned to the instance
+
+__str__()
+```
+def __str__(self):
+    returnf"<self.__clas__.__name__} {self.__dict__}>"
+```
+- prints a proper string representation of the object instead of the unreadable information in the <>.
 
 
 
