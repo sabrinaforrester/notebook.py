@@ -55,7 +55,7 @@ In the terminal:
 ## Comments
 - [#] Comment
     - ignored by compiler
-- [```] Multiline string
+- ["""] Multiline string
     - commonly mistaken as block comment (non-existent in python)
     - compiler runs to create string - takes up space in memory`
 
@@ -72,7 +72,7 @@ Format:
     - String Literals
         - 'single quoted string'
         - "double quoted string"
-    - ``` triple quoted multiline string - each new line is represented with: \n
+    - """ triple quoted multiline string - each new line is represented with: \n
 > Default encoding is unicode UTF 8
     > Unicode Transformation Format, values stored in 8 bits
     - ord('a')
@@ -1391,7 +1391,21 @@ def __str__(self):
 ```
 - prints a proper string representation of the object instead of the unreadable information in the <>.
 
+### Name Mangling
+>Variable names with double leading underscores are “mangled” to provide a simple but effective way to define class private variables. Any identifier of the form \__spam (at least two leading underscores, at most one trailing underscore) is textually replaced with _classname__spam, where classname is the current class name with any leading underscores stripped.
 
+#### Underscores Explained
+
+- \_var
+    - privatize an identifier name (function, method, etc)
+- \__var
+    - name mangling
+- \var_
+    - avoid name collision with python keywords
+- \__var__
+    - python's naming convention for special methods
+- \_
+    - assigning unused vales
 
 
 
