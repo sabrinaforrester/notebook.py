@@ -72,7 +72,9 @@ Format:
     - String Literals
         - 'single quoted string'
         - "double quoted string"
-    - """ triple quoted multiline string - each new line is represented with: \n
+        - """ triple quoted multiline string - each new line is represented with: \n
+        - Formatted string literals (f-strings) let you include the value of Python expressions inside a string by prefixing the string with f or F and writing expressions as {expression}
+            - f"{}" 
 > Default encoding is unicode UTF 8
     > Unicode Transformation Format, values stored in 8 bits
     - ord('a')
@@ -84,7 +86,7 @@ Format:
             - ord('\hexadecimal')
 #### Methods
 > Function tied to the item and provides functionality knowing the state of the object
-    `my_string = 'Testing'
+    `my_string = 'Testing'`
     - `my_string.lower()`
         - returns 'testing'
     - `my_string.upper()-`
@@ -641,7 +643,6 @@ while count < 10:
     print(f"We are counting numbers odd numbers: {count}")
     count += 1
 ```
-    - f is a string iterpolation similar to format
     
 > **Break** stops the exceution of the loop enitrely
 ```
@@ -1408,24 +1409,289 @@ def __str__(self):
     - assigning unused vales
 
 
+## Input and Output
+### Interacting with Files
+> Stream - file like objects, objects that allow to read data from them or write data to them
+
+**open()**
+- The key function for working with files in Python is the open() function.
+    - The open() function takes two parameters; filename, and mode.
+> **Mode:**
+
+**r** 
+- Read 
+- Default value. Opens a file for reading, error if the file does not exist
+
+**r+** 
+- to read an write
+
+**r+t**
+- open the text file in read mode
+**r+b**
+- open the binary file in read mode.
+
+**a**
+- Append - Opens a file for appending to the end of the file, creates the file if it does not exist
+
+**w** 
+- Write - Opens a file for writing, creates the file if it does not exist
+- replace all of the file contents, truncate, then start writing from the 0 position
+
+**w+** 
+- to truncate then read and write
+
+**x** 
+- Create - Creates the specified file, returns an error if the file exists
+
+**t** 
+- Text 
+- Default value. Text mode
+
+**b** 
+- Binary 
+- Binary mode (e.g. images)
+
+**.write()**
+- writes a specified text to the file.
+```
+my_file = open('new_file.txt, 'w+')
+my_file.write('Page\n')
+my_file.write('Scroll\n')
+my_file.writelines(['Space', 
+    'Word\n', 
+    'Header\n',
+])
+my_file.close()
+```
+**.close()**
+- - always close files, in some cases, due to buffering, changes made to a file may not show until the file is closed
+
+**.read()**
+- By default returns the whole text, but you can also specify how many characters you want to return
+
+```
+my_file = open(new_file.txt, 'r')
+print(my_file.read())
+my_file.close()
+```
+- instead of opening again, use seek before closing to make the file be read from the 0 position
+    ```
+    my_file.seek(0)
+    print(my_file.read())
+    my_file.close()
+    ```
+**with**
+- An alternative to closing files with close()
+
+**.readlines()**
+- returns a list containing each line in the file as a list item.
+- Use the hint parameter to limit the number of lines returned. 
+- If the total number of bytes returned exceeds the specified number, no more lines are returned.
+    - hint is optional. If the number of bytes returned exceed the hint number, no more lines will be returned. Default value is  -1, which means all lines will be returned.
+    
+`for line in my_file.readlines():
+    print(line)`
+
+**.writelines()**
+- writes the items of a list to the file
+
+```
+with open('new_file.txt, 'w+') as my_file:
+    my_file.write('Page\n')
+    my_file.write('Scroll\n')
+    my_file.writelines([
+        'Space\n', 
+        'Word\n', 
+        'Header\n',
+    ])
+
+    my_file.seek(0)
+    print(my_file.read())
+    my_file.close()
+my_file = open('new_file.txt', 'r')
+with my_file:
+    print(my_file.read())
+```
+
+#### Byte Objects
+> Immutable sequence type similar to a string
+- bytes literal
+    - b prefix
+> Each individual item in a bytes object is an integer between 0 and 256
+    - if a character code can be represented as ASCII character then the ASCII character will be shown
+        - if not, the number will be shown
+        
+- assigning a byte
+`my_bytes = b'This is a byte'`
+
+- use bytes class constructor to return a byte object of a specific length
+`bytes(10)`
+
+- range of byte digits
+- 2 digit hexadeximal represents every possible variation of one individual byte
+`bytes(range(10))`
+
+- index a byte string
+    - returns an integer
+` my_bytes[0]`
+
+- slice a byte
+    - returns a byte object
+` my_bytes[0:1]`
 
 
+#### Byte Array
+> Each individual item in a bytes object is an integer between 0 and 256
+- mutable
+    - can perform all of the same actions done on a byte object
+    
+`bytearray(10)`
 
+`bytearray(range(10))`
 
+`bytearray(b'This is bytes')`
 
+`b_array = bytearray(10)
 
+`'b_array[0:1] = b't''`
+- allows for a byte object to be inserted
 
+`b_array[0] = 0x10
+- set an individual value in a bytearray using the hexadecimal notation
 
+#### Bytes in Files
+`with open(new_file.txt, 'rb') as f:
+    f.read()`
+- reads it as a string but returns bytes object
+    - rb means to read in byte mode
 
+`with open(new_file.txt, 'rb') as f:
+    f.readlines()`
+- returns a list of bytes objects read as a string
 
+`my_file = open(new_file.txt, 'rb')`
+`b_array = bytearray(10)`
+`my_file.readinto(b_array)`
+- read and put the file into b_array
+`new_b_array = bytearray(my_file.read(5))`
+- returns a bytearray object 5 bytes long
 
+## Exceptions and Exception Handling
+- plan for code to go wrong
 
+> Errors detected during execution are called **exceptions** and are not unconditionally fatal.
 
+### Syntax Errors vs Exceptions
 
+#### Syntax Errors
+- the file never runs
+- Syntax errors, also known as parsing errors
+    - The parser repeats the offending line and displays a '^' pointing at the earliest point in the line where the error was detected. 
+        - The error is caused by (or at least detected at) the token preceding the arrow: in the example, the error is detected at the function print(), since a colon (':') is missing before it. 
+            - File name and line number are printed so you know where to look in case the input came from a script.
+            
+#### Exceptions
+- occur at run time
+- Even if a statement or expression is syntactically correct, it may cause an error when an attempt is made to execute it. 
 
+#### Exception Handling
+**try:**
+- The try block lets you test a block of code for errors.
 
+**except:**
+- The except block lets you handle the error.
+    - catches any type of exception
+    
+**else:**
+- You can use the else keyword to define a block of code to be executed if no errors were raised in the *try* block
 
+**finally:**
+- The finally block, if specified, will be executed regardless if the *try* block raises an error or not
+    
+**sys.argv**
+- The list of command line arguments passed to a Python script. argv[0] is the script name (it is operating system dependent whether this is a full pathname or not).
+    
+**sys.exit()**
+- Exit from Python. This is implemented by raising the SystemExit exception, so cleanup actions specified by finally clauses of try statements are honored, and it is possible to intercept the exit attempt at an outer level.
+- The optional argument arg can be an integer giving the exit status (defaulting to zero), or another type of object. 
+    - If it is an integer, zero is considered “successful termination” and any nonzero value is considered “abnormal termination” by shells and the like. Most systems require it to be in the range 0–127.
 
+```
+import sys
+print(f"Received argument {sys.argv[1]}")
+```
+>>> *file name* testing returns "Received argument testing"
+>>> *file name* returns an IndexError because an argument was not passed
+
+```
+import sys
+try:
+    print(f"Received argument {sys.argv[1]}")
+except:
+    print(f"Error: no arguments, please provide at least one")
+    sys.exit(1)
+```
+##### Multiple Exceptions
+- You can define as many exception blocks as you want, 
+- if you want to execute a special block of code for a special kind of error
+- Can use tuples to except multiple errors in the same block
+
+import sys
+try:
+    print(f"first argument {sys.argv[1]}")
+    args = sys.argv
+    random.shuffle(args)
+    print(f"Random argument {args[0]}")
+except IndexError as err:
+    print(f"Error: no arguments, please provide at least one({err})")
+    sys.exit(1)
+except NameError:
+    print(f"Error: random module not loaded"
+    sys.exit(1)
+else:
+    print("else is running")
+finally:
+    print("Finally is running")
+
+##### Raise Exceptions
+`err = Exception('something went wrong')`
+
+`dir(err)`
+ - What the exception has
+ 
+ `Exception.__subclasses__()`
+ - returns some potential errors
+ - does not show all erros will be listed
+ 
+ `IndexError.__bases__`
+ - returns the type of error IndexError belongs to
+ 
+ ```
+ import sys
+ if len(sys.argv) < 2:
+    raise Exception('not enough arguments')
+name = sys.argv[1]
+print(f"Name is {name}
+```
+
+##### Creating Custom Exceptions
+`class ArgumentError(Exception):
+    pass`
+`from .errors import ArgumentError`
+
+##### Assertion Errors
+> If experessionis False then AssertionError is raised
+- development/debugging tool
+- flags cause the AssertionError to act differently than expected
+```
+import sys
+from .errors import ArgumentError
+
+def main():
+assert len(sys.argv) >= 2, 'too few arguments'
+print(f"Name is {sys.argv[1]}")
+```
+- if *sys.argv = 0 or 1* an AssertionError will be raised
 
 
 
